@@ -18,8 +18,16 @@ while True:
 
     if command in ["read", "r", 'R']:
 
-        print(opened_file.read())
+        print(opened_file.readlines())
 
     if command in ["edit", "e", "E"]:
+        doc = opened_file.readlines()
+        for line in doc:
+            print(line)
+
         while True:
+            
             line = input(": ")
+            if line in ["done"]:
+                break
+            doc.append(line)
