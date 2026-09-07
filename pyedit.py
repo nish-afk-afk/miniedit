@@ -2,9 +2,14 @@
 
 print("Welcome To Miniedit")
 
-file_path = input("enter the filepath of the file you want to edit")
+file_path = input("enter the filepath of the file you want to edit: ")
+if file_path in ["quit", "q",]:
+    exit()
 
 open(file_path)
 
 while True:
+    command = input("please name the command you need to execute")
 
+    if command in ["quit", "q"]:
+        break
