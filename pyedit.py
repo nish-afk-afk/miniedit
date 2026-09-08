@@ -24,10 +24,25 @@ while True:
         doc = opened_file.readlines()
         for line in doc:
             print(line)
+        current_row = 0     
+    
 
         while True:
             
             line = input(": ")
             if line in ["done"]:
                 break
-            doc.append(line)
+
+
+            if line.startswith("goto"):
+                current_row = int(line.split()[1]) - 1
+                newline = input(":n ")
+                doc[current_row] = newline + "\n"
+
+
+            doc.append(line + "\n")
+
+        active_file = open(file_path, "w")
+        
+        for line in doc:
+            active_file.write(line)
